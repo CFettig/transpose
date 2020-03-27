@@ -34,19 +34,22 @@ def transpose_down(chords):
         res.append(get_key(chord, minor))
     return res
 
-def display(chords):
-    print(' '.join([str(elem) for elem in chords]))
+def display(chords, i):
+    i = str(i)
+    print(i + ' ' + ' '.join([str(elem) for elem in chords]))
         
 def get_transposin(og_chords):
-    # res = [0, og_chords]
+    i = 0
     c = input("u for up, d for down:")
     while (c != 'x'):
         if c == 'u':
+            i += 1
             og_chords = transpose_up(og_chords)
-            display(og_chords)
+            display(og_chords, i)
         elif c == 'd':
+            i -= 1
             og_chords = transpose_down(og_chords)
-            display(og_chords)
+            display(og_chords, i)
         else:
             print("\nNope")
         c = input()
