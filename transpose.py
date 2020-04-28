@@ -40,14 +40,14 @@ def display(chords, i):
         
 def get_transposin(og_chords):
     i = 0
-    c = input("u for up, d for down:")
+    c = input("u for up, d for down, or x to stop:")
     while (c != 'x'):
         if c == 'u':
-            i = (i + 1) % 8
+            i = (i + 1) % 12
             og_chords = transpose_up(og_chords)
             display(og_chords, i)
         elif c == 'd':
-            i = (i - 1) % 8
+            i = (i - 1) % 12
             og_chords = transpose_down(og_chords)
             display(og_chords, i)
         else:
@@ -57,7 +57,7 @@ def get_transposin(og_chords):
 def check_chords(chords):
     res = True
     for chord in chords:
-        if not (chord in all_chords):
+        if not (chord[0] in all_chords):
             res = False
     return res
 
@@ -70,5 +70,3 @@ if __name__ == "__main__":
         get_transposin(chords)
     else:
         print("I can't do those chords")
-
-    
