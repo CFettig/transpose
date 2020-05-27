@@ -17,6 +17,11 @@ def transpose_up(chords):
         if minor:
             chord = chord[:-1]
             chord = (all_chords[chord] + 1)%12
+        # if (len(chord) > 1):
+        #     chord = chord[0]
+        #     print(chord)
+        #     other_stuff = chord[1:]
+        #     chord = (all_chords[chord] + 1)%12
         else:
             chord = (all_chords[chord] + 1)%12
         res.append(get_key(chord, minor))
